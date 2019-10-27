@@ -25,6 +25,7 @@ Released   : 20140314
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
+
 </head>
 <body>
 <!-- The main header -->
@@ -54,6 +55,7 @@ Released   : 20140314
           <div class="choice">Voice Processing</div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
@@ -77,7 +79,91 @@ Released   : 20140314
     document.getElementById("file-input").click();
   }
 </script>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script src="js/app.js"></script>
 
+    <!-- Get the Picture -->
+    <script>
+        function getPic() {
+            document.getElementById("file-input").click();
+        }
+    </script>
+
+    <!--<script src="https://sdk.amazonaws.com/js/aws-sdk-2.383.1.min.js"></script>-->
+    <script>
+        var AWS = require('aws-sdk');
+        var albumBucketName = "voice.processing.com";
+        var bucketRegion = "us-west-2";
+        var IdentityPoolId = "us-west-2:c31d6874-0e87-4feb-8ef1-32dd3bf32b21";
+
+        AWS.config.update({
+            region: bucketRegion,
+            credentials: new AWS.CognitoIdentityCredentials({
+                IdentityPoolId: IdentityPoolId
+            })
+        });
+
+
+        var s3 = new AWS.S3({
+            apiVersion: "2006-03-01",
+            params: { Bucket: albumBucketName,
+                accessKeyId:"AKIARZHFFJLVGCA5MAKF",
+                secretAccessKey:"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"
+            }
+        });
+
+        var s3 = new AWS.S3({accessKeyId:"AKIARZHFFJLVGCA5MAKF", secretAccessKey:"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"});
+
+
+
+
+        // initialize transcribe
+        var transcribeservice = new AWS.TranscribeService({accessKeyId:"AKIARZHFFJLVGCA5MAKF", secretAccessKey:"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"});
+
+
+
+        // this function will be called when fininshed analysis .wav file to words
+        function word_ready_from_audio(array_of_words) {
+            alarm("");
+            // your code here
+        }
+
+        // call this to start analysis .wav file to words of ingredients
+        function audio_to_word(audio_file) {
+            // upload
+            var a3_video_params = {Bucket: 'sound.processing.com', Key: 'default_wav.wav', Body: audio_file};
+            s3.upload(s3_params, function(err, data) {
+                if(err) console.log('err', err.stack);
+                else {
+                    console.log(data);
+                    autio_to_word_part2(data.Location);
+                }
+            });
+        }
+        function autio_to_word_part2(data_location) {
+            var audio_params = {
+                LanguageCode: en-US, /* required */
+                Media: { MediaFileUri: data_location }, /* required */
+                TranscriptionJobName: 'default_wav.wav', /* required */
+                MediaFormat: wav,
+//              OutputBucketName: 'STRING_VALUE'
+            };
+            transcribeservice.startTranscriptionJob(audio_params, function(err, data) {
+                if (err) console.log(err, err.stack); // an error occurred
+                else {
+                    console.log(data);           // successful response
+                    console.log(data.TranscriptionJobStatus);
+                    if (data.TranscriptionJobStatus = "COMPLETED") {
+                        var dataurl = data.TranscriptionJob["Transcript"][TranscriptFileUri];
+                        console.log('words url', dataurl);
+                        get_transcript(dataurl);
+                        word_ready_from_audio();
+                    }
+
+                }
+            });
+        }
+    </script>
 
 
 </body>
