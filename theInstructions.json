@@ -12,7 +12,7 @@ theInstructions = [
 		"name": "Scrambled Eggs",
 		"instructions": [
 			"Buy some eggs",
-			"Fry eggs"
+			"Fry the eggs"
 		]
 	},
 	{
@@ -31,6 +31,31 @@ theInstructions = [
 			"Slice the peppers",
 			"Fry potatoes",
 			"Add peppers"
+		]
+	},
+	{
+		"name": "Fruit Salad",
+		"instructions": [
+			"Buy lots of fruits",
+			"Peel or wash if needed",
+			"Put them onto the plate"
+		]
+	},
+	{
+		"name": "Steamed Eggs",
+		"instructions": [
+			"Pour yolk into a bowl",
+			"Put the bowl in a pod",
+			"Steam it"
+		]
+	},
+	{
+		"name": "French Fries",
+		"instructions": [
+			"Peel the potatoes",
+			"Slice the potatoes",
+			"Fry",
+			"Add oil"
 		]
 	}
 ]

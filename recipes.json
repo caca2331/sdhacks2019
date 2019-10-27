@@ -44,5 +44,39 @@ recipes = [
 			"diabetes",
 			"hyperglycemia"
 		]
+	},
+	{
+		"name": "Fruit Salad",
+		"ingredients": [
+			"fruit"
+		],
+		"calories": "low",
+		"tags": [
+			"vegan",
+			"diabetes",
+			"hyperglycemia"
+		]
+	},
+	{
+		"name": "Steamed Eggs",
+		"ingredients": [
+			"egg"
+		],
+		"calories": "low",
+		"tags": [
+			"diabetes",
+			"hyperglycemia"
+		]
+	},
+	{
+		"name": "French Fries",
+		"ingredients": [
+			"potato"
+		],
+		"calories": "high",
+		"tags": [
+			"vegan",
+			"hyperglycemia"
+		]
 	}
 ]
