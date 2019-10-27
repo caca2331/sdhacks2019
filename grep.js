@@ -99,23 +99,27 @@ function selectRecipe(jsonObj, requirements) {
 	var retList = [];
 	if (calories.toUpperCase() == "LOW") {
 		retList += low;
-		if ((retList.length != 0) && (medium.length != 0)) {
-			retList += (", " + medium);
+		if (medium.length != 0) {
+			if (retList.length != 0) retList += ", ";
+			retList += medium;
 		}
 	}
 	else if (calories.toUpperCase() == "MEDIUM") {
 		retList += medium;
-		if ((retList.length != 0) && (low.length != 0)) {
-			retList += (", " + low);
+		if (low.length != 0) {
+			if (retList.length != 0) retList += ", ";
+			retList += low;
 		}
-		if ((retList.length != 0) && (high.length != 0)) {
-			retList += (", " + high);
+		if (high.length != 0) {
+			if (retList.length != 0) retList += ", ";
+			retList += high;
 		}
 	}
 	else {
 		retList += high;
-		if ((retList.length != 0) && (medium.length != 0)) {
-			retList += (", " + medium);
+		if (medium.length != 0) {
+			if (retList.length != 0) retList += ", ";
+			retList += medium;
 		}
 	}
 	return retList;

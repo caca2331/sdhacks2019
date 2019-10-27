@@ -102,7 +102,7 @@
 
 	function getFinalPreference() {
 		var mydata = JSON.parse(JSON.stringify(recipes));
-		var argument = "{\"ingredients\": [\"egg\",\"tomato\",\"panda\"], " + getPreference() + "}";
+		var argument = "{\"ingredients\": [\"egg\",\"tomato\",\"potato\",\"green pepper\"], " + getPreference() + "}";
 		localStorage.setItem("arguments", argument);
 		let text = localStorage.getItem("arguments");
 		obj = JSON.parse(text);
@@ -124,8 +124,8 @@
 		allInstructions = ("[" + allInstructions + "]");
 
 		instruct = JSON.parse(allInstructions);
-		console.log(instruct);
-		return parseInstruction(name, ins);
+console.log(instruct);
+		return instruct;
 	}
 
 
