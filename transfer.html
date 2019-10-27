@@ -49,16 +49,16 @@ Released   : 20140314
         <div class="transfer-bg" style="background-image:
         url('./images/sound-bg.png')"></div>
         <div class="transfer-keyword">
-          <div class="choice">Voice Processing</div>
+          <a href="#" onclick="showVoiceButton()" class="choice">Voice Processing</a>
         </div>
           <button class="voice-button">
-            <img src="./icons/record.png" width="40%">
+            <img src="./icons/record.png" id="record" width="40%" style="padding-left: 30%;">
           </button>
           <button class="voice-button">
-            <img src="./icons/pause.png" width="40%">
+            <img src="./icons/pause.png" id="pause" width="40%" style="padding-left: 30%;">
           </button>
           <button class="voice-button">
-            <img src="./icons/stop.png" width="40%">
+            <img src="./icons/stop.png" id="stop" width="40%" style="padding-left: 30%;">
           </button>
       </div>
 
@@ -84,7 +84,9 @@ Released   : 20140314
   }
 
   function showVoiceButton() {
-    var x = document.getElementById
+    document.getElementById("record").style.display = "block";  
+    document.getElementById("pause").style.display = "block";  
+    document.getElementById("stop").style.display = "block";  
   }
 </script>
 

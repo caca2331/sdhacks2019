@@ -54,12 +54,14 @@
    </select>
   </div>
 
-  <button onclick=func()>Submit</button>
-  <div id="test"></div>
+  <button onclick=getPreference()>Submit</button>
 </form>
 </div>
+
 </body>
 
+
+<script type="text/javascript" src="renderRecipe.js"></script>
 <script>
 	function getTag() {
 		var tag = "\"tags\": [";
@@ -77,15 +79,12 @@
 		return tag;
 	}
 
-	function getPreference() {
+	function getCalory() {
 		var calory = "\"calories\": " + document.getElementById("options").value;
 		return calory;
 	}
 
-	function func() {
-		var string = getTag() + ", " + getPreference();
-		return string;
-	}
+
 </script>
 
 </html>

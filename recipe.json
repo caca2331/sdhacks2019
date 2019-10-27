@@ -1,4 +1,4 @@
-let recipes = {[
+recipes: {[
 	{
 		"name": "Tomato Scrambled Eggs",
 		"ingredients": [

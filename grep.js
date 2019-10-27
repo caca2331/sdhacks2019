@@ -103,6 +103,6 @@ function selectRecipe(jsonObj, requirements) {
 	}
 
 	return retList;
-
-
 }
+
+exports selectRecipe = selectRecipe;

@@ -486,6 +486,9 @@
   z-index: 1;
   top: 60%;
   left: 34%;
+}
+
+#record, #pause, #stop {
   display: none;
 }
 
