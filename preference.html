@@ -54,24 +54,34 @@
    </select>
   </div>
 
-  <button onclick=getPreference()>Submit</button>
+  <button onclick=getFinalPreference() type="button">Submit</button>
 </form>
 </div>
 
 </body>
 
 
-<script type="text/javascript" src="renderRecipe.js"></script>
+<script type="text/javascript" src="recipes.json"></script>
+<script type="text/javascript" src="grep.js"></script>
 <script>
 	function getTag() {
 		var tag = "\"tags\": [";
 		if (document.getElementById("V").checked == true) {
-			tag += "\"vegan\", ";
+			tag += "\"vegan\"";
+			if (document.getElementById("D").checked == true) {
+				tag += ", \"diabetes\"";
+			}
+			if (document.getElementById("H").checked == true) {
+				tag += ", \"hyperglycemia\"";
+			}
 		}
-		if (document.getElementById("D").checked == true) {
-			tag += "\"diabetes\", ";
+		else if (document.getElementById("D").checked == true) {
+			tag += "\"diabetes\"";
+			if (document.getElementById("H").checked == true) {
+				tag += ", \"hyperglycemia\"";
+			}
 		}
-		if (document.getElementById("H").checked == true) {
+		else if (document.getElementById("H").checked == true) {
 			tag += "\"hyperglycemia\"";
 		}
 		tag += "]";
@@ -80,8 +90,23 @@
 	}
 
 	function getCalory() {
-		var calory = "\"calories\": " + document.getElementById("options").value;
+		var calory = "\"calories\": \"" + document.getElementById("options").value + "\"";
 		return calory;
+	}
+	function getPreference() {
+		var string = getTag() + ", " + getCalory();
+		return string;
+	}
+
+
+
+	function getFinalPreference() {
+		var mydata = JSON.parse(JSON.stringify(recipes));
+		var argument = "{\"ingredients\": [\"egg\",\"tomato\"], " + getPreference() + "}";
+		localStorage.setItem("arguments", argument);
+		let text = localStorage.getItem("arguments");
+		obj = JSON.parse(text);
+		console.log(selectRecipe(mydata, obj));
 	}
 
 

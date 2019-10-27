@@ -39,6 +39,7 @@ function selectRecipe(jsonObj, requirements) {
 
 	// All ingredients.
 	let ingredients = requirements['ingredients'];
+
 	// All tags.
 	let tags = requirements['tags'];
 	// Selection of calory.
@@ -51,8 +52,8 @@ function selectRecipe(jsonObj, requirements) {
 	let i = 0;
 
 	// Traverse the list of recipes and filter ingredients.
-	for (i = 0; i < allRecipes.length; i++) {
-		var recipe = allRecipes[i];
+	for (i = 0; i < recipes.length; i++) {
+		var recipe = recipes[i];
 		if (compareIngredient(recipe['ingredients'], ingredients) == 1) {
 			firstRoundList = firstRoundList.concat(recipe);
 		}
@@ -80,29 +81,27 @@ function selectRecipe(jsonObj, requirements) {
 	for (i = 0; i < secondRoundList.length; i++) {
 		var recipe = secondRoundList[i];
 		if (recipe['calories'].toUpperCase() == "LOW") {
-			low.concat(recipe);
+			low += JSON.stringify(recipe);
 		}
 		else if (recipe['calories'].toUpperCase() == "MEDIUM") {
-			medium.concat(recipe);
+			medium += JSON.stringify(recipe);
 		}
 		else {
-			high.concat(recipe);
+			high += JSON.stringify(recipe);
 		}
 	}
 
 	// Then, get the list based on user's preference.
 	var retList = [];
 	if (calories.toUpperCase() == "LOW") {
-		retList.concat(low, medium);
+		retList += (low + medium);
 	}
 	else if (calories.toUpperCase() == "MEDIUM") {
-		retList.concat(medium, low, high);
+		retList += (medium + low + high);
 	}
 	else {
-		retList.concat(high, medium);
+		retList += (high + medium);
 	}
 
 	return retList;
 }
-
-exports selectRecipe = selectRecipe;
