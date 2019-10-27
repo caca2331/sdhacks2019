@@ -1,4 +1,4 @@
-[
+let recipes = {[
 	{
 		"name": "Tomato Scrambled Eggs",
 		"ingredients": [
@@ -34,8 +34,4 @@
 			"hyperglycemia"
 		]
 	}
-]
-
-
-
- [{"name" : "bacon egg", "ingredients" :["egg", "bacon"], "calaries" : [300, 1000],  "tags":["糖尿病", "低盐", "高蛋白"], "flavor":["快餐", "西餐"]}, ...]
+]}
