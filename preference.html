@@ -60,7 +60,7 @@
 
 </body>
 
-
+<script type="text/javascript" src="theInstructions.json"></script>
 <script type="text/javascript" src="recipes.json"></script>
 <script type="text/javascript" src="grep.js"></script>
 <script>
@@ -102,11 +102,25 @@
 
 	function getFinalPreference() {
 		var mydata = JSON.parse(JSON.stringify(recipes));
-		var argument = "{\"ingredients\": [\"egg\",\"tomato\"], " + getPreference() + "}";
+		var argument = "{\"ingredients\": [\"egg\",\"tomato\",\"panda\"], " + getPreference() + "}";
 		localStorage.setItem("arguments", argument);
 		let text = localStorage.getItem("arguments");
 		obj = JSON.parse(text);
-		console.log(selectRecipe(mydata, obj));
+
+		var result = selectRecipe(mydata, obj);
+		result = ("[" + result + "]");
+		var resultJson = JSON.parse(result);
+		if (resultJson.length == 0) return [];
+
+		var ins = JSON.parse(JSON.stringify(theInstructions));
+
+		var allInstructions = [];
+		for (let i = 0; i < resultJson.length; i++) {
+			var name = resultJson[i]['name'];
+			allInstructions += parseInstruction(name, ins);
+		}
+		console.log(allInstructions);
+		return parseInstruction(name, ins);
 	}
 
 

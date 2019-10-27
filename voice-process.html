@@ -4,7 +4,7 @@ Design by TEMPLATED
 http://templated.co
 Released for free under the Creative Commons Attribution License
 
-Name       : Lorikeet
+Name       : Lorikeet 
 Description: A two-column, fixed-width design with dark color scheme.
 Version    : 1.0
 Released   : 20140314
@@ -18,8 +18,10 @@ Released   : 20140314
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
-<link href="transfer.css" rel="stylesheet" type="text/css" media="all" />
+<link href="voice-process.css" rel="stylesheet" type="text/css" media="all" />
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="voice-process-sup.css">
+
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
 
@@ -42,51 +44,37 @@ Released   : 20140314
 		</div>
 	</div>
 
-   <!-- Choose Voice OR Picture to proceed -->
+   <!-- Background image -->
   <div class="transfer-container">
     <div class="transfer-wrapper">
       <div class="transfer-processor" style="float:left;">
         <div class="transfer-bg" style="background-image:
         url('./images/sound-bg.png')"></div>
         <div class="transfer-keyword">
-          <a href="#" onclick="showVoiceButton()" class="choice">Voice Processing</a>
+          <div class="choice">Voice Processing</div>
         </div>
-          <button class="voice-button">
-            <img src="./icons/record.png" id="record" width="40%" style="padding-left: 30%;">
-          </button>
-          <button class="voice-button">
-            <img src="./icons/pause.png" id="pause" width="40%" style="padding-left: 30%;">
-          </button>
-          <button class="voice-button">
-            <img src="./icons/stop.png" id="stop" width="40%" style="padding-left: 30%;">
-          </button>
       </div>
-
-      <div class="transfer-processor" style="float:right;">
-        <div class="transfer-bg" style="background-image:
-        url('./images/picture-bg.jpg')"></div>
-        <div class="transfer-keyword">
-          <button class="pic-button" onclick="getPic()">Picture Processing</button>
-        </div>
-        <input type="file" accept="image/*" id="file-input"></input>
-      </div>
-    </div>
   </div>
 </div>
 
-<!-- Record the Video and Process it -->
+<!-- Record the Video -->
+<div id="controls">
+  <button id="recordButton">Record</button>
+  <button id="pauseButton" disabled>Pause</button>
+  <button id="stopButton" disabled>Stop</button>
+</div>
+  <div id="formats">Format: start recording to see sample rate</div>
+  <h3>Recordings</h3>
+  <ol id="recordingsList"></ol>
 
+<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="js/app.js"></script>
 
 <!-- Get the Picture -->
 <script>
   function getPic() {
     document.getElementById("file-input").click();
-  }
-
-  function showVoiceButton() {
-    document.getElementById("record").style.display = "block";
-    document.getElementById("pause").style.display = "block";
-    document.getElementById("stop").style.display = "block";
   }
 </script>
 

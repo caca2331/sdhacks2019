@@ -20,12 +20,17 @@
 	}
 	
 	
-	ol, ul
+	ul
 	{
 		padding: 0;
 		list-style: none;
 	}
-	
+  
+  ol {
+    width: 50%;
+    margin: auto;
+  }
+
 	p
 	{
 		line-height: 180%;
@@ -33,6 +38,7 @@
 	
 	a {
 		text-decoration: none;
+    color: white;
 	}
 	
 	.container
@@ -344,7 +350,7 @@
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(10, 10, 10);
     position: relative;
-    width: 50%;
+    width: 100%;
     height: 30vw;
     color: white;
     overflow: hidden;
@@ -355,7 +361,6 @@
   .transfer-processor:before, .transfer-processor:after {
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
-    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -381,9 +386,6 @@
     transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
   }
 
-  .transfer-processor:hover {
-    width: 50% !important;
-  }
 
   .transfer-processor:hover:after {
     opacity: 0;
@@ -470,60 +472,3 @@
   line-height: 5vw;
 }
 
-/* Voice button */
-.voice-button {
-  position: relative;
-  background-repeat: no-repeat;
-  border: none;
-  padding: 0;
-  margin-top: 2vw;
-  margin-right: 0.3vw;
-  display: inline-block;
-  background-color: white;
-  cursor: pointer;
-  width: 10%;
-  float: left;
-  z-index: 1;
-  top: 60%;
-  left: 34%;
-}
-
-#record, #pause, #stop {
-  display: none;
-}
-
-.voice-button:hover {
-  background-color: royalblue;
-  cursor: pointer;
-
-}
-
-.voice-button:focus {
-  background-color: yellow;
-  cursor: pointer;
-}
-
-/* newly added */
-.voice-button:active {
-  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
-  line-height: 3rem;
-}
-
-.voice-button:disabled {
-  pointer-events: none;
-  background: lightgray;
-}
-
-audio {
-  display: block;
-  width: 100%;
-  margin-top: 0.2rem;
-}
-li {
-  list-style: none;
-  margin-bottom: 1rem;
-}
-#formats {
-  margin-top: 0.5rem;
-  font-size: 80%;
-}

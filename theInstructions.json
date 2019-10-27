@@ -1,0 +1,29 @@
+theInstructions = [
+	{
+		"name": "Tomato Scrambled Eggs",
+		"instructions": [
+			"Buy some eggs",
+			"Buy some tomatoes",
+			"Fry eggs",
+			"Add tomatoes"
+		]
+	},
+	{
+		"name": "Fried Chicken Wings",
+		"instructions": [
+			"Buy some chicken wings",
+			"Fry chicken wings",
+			"Add flour",
+			"Add water and let it boils"
+		]
+	},
+	{
+		"name": "Pepper Fried Potato",
+		"instructions": [
+			"Slice the potatoes",
+			"Slice the peppers",
+			"Fry potatoes",
+			"Add peppers"
+		]
+	}
+]

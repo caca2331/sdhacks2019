@@ -5,9 +5,10 @@
  */
 function compareIngredient(recipeIngre, userIngre) {
 	var i;
-	for (i = 0; i < userIngre.length; i++) {
+	for (i = 0; i < recipeIngre.length; i++) {
 	  if (userIngre.includes(recipeIngre[i]) == false) return 0;
 	}
+
 	return 1;
 }
 
@@ -104,4 +105,32 @@ function selectRecipe(jsonObj, requirements) {
 	}
 
 	return retList;
+}
+
+/*
+ * The first argument is the name of the recipe.
+ * The second argument is the json obejct.
+ */
+function parseInstruction(recipe, jsonObj) {
+	// All instructions.
+	let allRecipes = jsonObj['theInstructions'];
+	var ret = [];
+
+	// Travser the instructionFile and get the one in the recipe.
+	for (let i = 0; i < theInstructions.length; i++) {
+		if (recipe == theInstructions[i]['name']) {
+			ret += theInstructions[i]['instructions'];
+		}
+	}
+	return ret;
+
+
+
+
+
+
+
+
+
+
 }
