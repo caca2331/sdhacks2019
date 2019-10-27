@@ -22,6 +22,7 @@ Released   : 20140314
 <link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
 
 <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.283.1.min.js"></script>
 
 </head>
 <body>
@@ -59,7 +60,7 @@ Released   : 20140314
         <div class="transfer-keyword">
           <button class="pic-button" onclick="getPic()">Picture Processing</button>
         </div>
-        <input type="file" accept="image/*" id="file-input"></input>
+        <input type="file" accept="image/*" id="imageFiles"></input>
       </div>
     </div>
   </div>
@@ -69,9 +70,159 @@ Released   : 20140314
 
 <!-- Get the Picture -->
 <script>
-  function getPic() {
-    document.getElementById("file-input").click();
-  }
+    var albumBucketName = "image.processing";
+    var bucketRegion = "us-west-2";
+    var IdentityPoolId = "us-west-2:c31d6874-0e87-4feb-8ef1-32dd3bf32b21";
+
+    AWS.config.update({
+        region: bucketRegion,
+        credentials: new AWS.CognitoIdentityCredentials({
+            IdentityPoolId: IdentityPoolId
+        })
+    });
+
+    var s3 = new AWS.S3({
+        apiVersion: "2006-03-01",
+        params: { Bucket: albumBucketName,
+            accessKeyId:"AKIARZHFFJLVGCA5MAKF",
+            secretAccessKey:"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"
+        }
+    });
+
+    var s3 = new AWS.S3({accessKeyId:"AKIARZHFFJLVGCA5MAKF", secretAccessKey:"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"});
+
+    function getPic() {
+        document.getElementById("imageFiles").click();
+    }
+
+    const fileInput = document.getElementById('imageFiles');
+    fileInput.addEventListener('change', (e) => {var img = getPicFile(e.target.files);
+        var imgParam = {
+            ACL:"aws-exec-read",
+            Bucket: "image.processing",
+            Key: "photo1",
+            Body: img
+        };
+
+        s3.upload(imgParam, function(err, data) {
+            if(err){
+                console.log("upload error", err.stack);
+            }
+
+            else{
+                console.log(data);
+                var result = imageToLabel();
+                result = result.toLowerCase();
+                console.log(result);
+            }
+        });
+    });
+
+    function getPicFile(fileList) {
+        let file = fileList[fileList.length-1] ;
+        return file;
+    }
+
+
+    var rekognition = new AWS.Rekognition({apiVersion: '2016-06-27',
+        accessKeyId:"AKIARZHFFJLVGCA5MAKF",
+        secretAccessKey:"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"});
+    var result = new Array(3);
+
+    var imageToLabelParam = {
+        Image: {
+            S3Object:{
+                Bucket: "image.processing",
+                Name: "photo1"
+            }
+        },
+
+        MaxLabels: 20,
+        MinConfidence: 50
+    };
+
+
+    function imageToLabel(){
+        rekognition.detectLabels(imageToLabelParam, function(err, data){
+            if(err){
+                console.log(err, err.stack);
+            }
+
+            else{
+                console.log(data);
+
+                var i;
+                for(i = 0; i < 3; i++){
+                    result[i] = data["Labels"][i]["Name"];
+                }
+
+            }
+
+
+        });
+
+        return result;
+    }
+
+
+
+
+
+    // New *****************************************************
+    // New *****************************************************
+    // New *****************************************************
+    // New *****************************************************
+    // New *****************************************************
+
+
+
+
+
+    // initialize transcribe
+    var transcribeservice = new AWS.TranscribeService({accessKeyId:"AKIARZHFFJLVGCA5MAKF", secretAccessKey:"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"});
+
+    // this function will be called when fininshed analysis .wav file to words
+    function word_ready_from_audio(array_of_words) {
+        alarm("");
+        // your code here
+    }
+
+    // call this to start analysis .wav file to words of ingredients
+    function audio_to_word(audio_file) {
+        // upload
+        var a3_video_params = {Bucket: 'sound.processing.com', Key: 'default_wav.wav', Body: audio_file};
+        s3.upload(s3_params, function(err, data) {
+            if(err) console.log('err', err.stack);
+            else {
+                console.log(data);
+                autio_to_word_part2(data.Location);
+            }
+        });
+    }
+    function autio_to_word_part2(data_location) {
+        var audio_params = {
+            LanguageCode: en-US, /* required */
+            Media: { MediaFileUri: data_location }, /* required */
+            TranscriptionJobName: 'default_wav.wav', /* required */
+            MediaFormat: wav,
+//              OutputBucketName: 'STRING_VALUE'
+        };
+        transcribeservice.startTranscriptionJob(audio_params, function(err, data) {
+            if (err) console.log(err, err.stack); // an error occurred
+            else {
+                console.log(data);           // successful response
+                console.log(data.TranscriptionJobStatus);
+                if (data.TranscriptionJobStatus = "COMPLETED") {
+                    var dataurl = data.TranscriptionJob["Transcript"][TranscriptFileUri];
+                    console.log('words url', dataurl);
+                    get_transcript(dataurl);
+                    word_ready_from_audio();
+                }
+
+            }
+        });
+    }
+
 </script>
 
 
