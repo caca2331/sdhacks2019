@@ -36,30 +36,56 @@
 <div id="preference-wrapper">
 <form>
   <h1 style="margin-left: 0;">Set up your preferences</h1>
-  
+
   <div class="question">
-    <h3 style="margin: 0"> Diet Restriction (Leave it blank if no restrictions)</h3> 
-    <input type="checkbox" name="typeV" value="vegan">Vegan<br>
-    <input type="checkbox" name="typeD" value="diabetes">Diabetes<br>
-    <input type="checkbox" name="typeH" value="hyperglycemia">Hyperglycemia<br>
-    
+    <h3 style="margin: 0"> Diet Restriction (Leave it blank if no restrictions)</h3>
+    <input type="checkbox" id="V" name="typeV" value="vegan">Vegan<br>
+    <input type="checkbox" id="D" name="typeD" value="diabetes">Diabetes<br>
+    <input type="checkbox" id="H" name="typeH" value="hyperglycemia">Hyperglycemia<br>
+
   </div>
 
   <div class="question">
     <h3 style="margin: 0;">Calories Level</h3>
-    <select class="drop-down" name="calories-level">
+    <select class="drop-down" id="options" name="calories-level">
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
    </select>
   </div>
 
-  <button>Submit</button>
+  <button onclick=func()>Submit</button>
+  <div id="test"></div>
 </form>
 </div>
-
-
-
-
 </body>
+
+<script>
+	function getTag() {
+		var tag = "\"tags\": [";
+		if (document.getElementById("V").checked == true) {
+			tag += "\"vegan\", ";
+		}
+		if (document.getElementById("D").checked == true) {
+			tag += "\"diabetes\", ";
+		}
+		if (document.getElementById("H").checked == true) {
+			tag += "\"hyperglycemia\"";
+		}
+		tag += "]";
+
+		return tag;
+	}
+
+	function getPreference() {
+		var calory = "\"calories\": " + document.getElementById("options").value;
+		return calory;
+	}
+
+	function func() {
+		var string = getTag() + ", " + getPreference();
+		return string;
+	}
+</script>
+
 </html>
