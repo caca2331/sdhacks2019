@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by TEMPLATED
+http://templated.co
+Released for free under the Creative Commons Attribution License
+
+Name       : Lorikeet 
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20140314
+
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href="transfer.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+<!-- The main header -->
+<div id="header-wrapper-preference">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">OneRecipe</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li class="active"><a href="index.html" accesskey="1" title="">Home</a></li>
+				<li><a href="#" accesskey="2" title="">About</a></li>
+				<li><a href="preference.html" accesskey="3" title="">Preferences</a></li>
+				<li><a href="transfer.html" accesskey="4" title="">GetOneNow</a></li>
+				<li><a href="#" accesskey="5" title="">Happy Hacking</a></li>
+			</ul>
+		</div>
+	</div>
+
+   <!-- Choose Voice OR Picture to proceed -->
+  <div class="transfer-container">
+    <div class="transfer-wrapper">
+      <div class="transfer-processor" style="float:left;">
+        <div class="transfer-bg" style="background-image:
+        url('./images/sound-bg.png')"></div>
+        <div class="transfer-keyword">
+          <div class="choice">Voice
+          Processing</div>
+          <button class="voice-button">
+            <img src="./icons/record.png" width="40%">
+          </button>
+          <button class="voice-button" style="padding-left: 10%;">
+            <img src="./icons/pause.png" width="40%">
+          </button>
+          <button class="voice-button" style="padding-left: 20%;">
+            <img src="./icons/stop.png" width="40%">
+          </button>
+        </div>
+      </div>
+
+      <div class="transfer-processor" style="float:right;">
+        <div class="transfer-bg" style="background-image:
+        url('./images/picture-bg.jpg')"></div>
+        <div class="transfer-keyword">
+          <button class="pic-button" onclick="getPic()">Picture
+          Processing</button>
+        </div>
+        <input type="file" accept="image/*" id="file-input"></input>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Record the Video and Process it -->
+
+
+<!-- Get the Picture -->
+<script>
+  function getPic() {
+    document.getElementById("file-input").click();
+  }
+</script>
+
+
+
+</body>
+</html>
