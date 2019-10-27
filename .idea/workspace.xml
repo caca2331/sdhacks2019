@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0172b9a0-a323-40fa-9df8-f84681fd3174" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/transfer.html" beforeDir="false" afterPath="$PROJECT_DIR$/transfer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/voice-process.html" beforeDir="false" afterPath="$PROJECT_DIR$/voice-process.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,21 +25,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="html" value="3" />
+          <entry key="js" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="HTML" value="3" />
+          <entry key="JavaScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="67" />
+          <entry key="html" value="800" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="67" />
+          <entry key="HTML" value="800" />
         </counts>
       </usages-collector>
     </session>
@@ -49,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/transfer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
+            <state relative-caret-position="-104">
+              <caret line="78" column="57" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -58,13 +60,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/voice-process.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+            <state relative-caret-position="913">
+              <caret line="109" column="156" selection-start-line="109" selection-start-column="156" selection-end-line="109" selection-end-column="156" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="96" selection-start-line="96" selection-end-line="98" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>en</find>
+      <find>uri</find>
+      <find>stopRecording</find>
+      <find>app.</find>
+      <find>TranscriptionJobStatus</find>
+      <find>{}</find>
+      <find>stopButton</find>
+      <find>{</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -73,6 +96,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/transfer.html" />
+        <option value="$PROJECT_DIR$/js/app.js" />
         <option value="$PROJECT_DIR$/voice-process.html" />
       </list>
     </option>
@@ -98,6 +122,11 @@
             <path>
               <item name="sdhacks2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="sdhacks2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sdhacks2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sdhacks2019" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -134,12 +163,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572176869256</updated>
-      <workItem from="1572176870621" duration="546000" />
+      <workItem from="1572176870621" duration="7057000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="546000" />
+    <option name="totallyTimeSpent" value="7057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -174,17 +203,24 @@
     <entry file="file://$PROJECT_DIR$/preference.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="96" selection-start-line="96" selection-end-line="98" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/transfer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="62" column="58" selection-start-line="62" selection-start-column="58" selection-end-line="62" selection-end-column="58" />
+        <state relative-caret-position="-104">
+          <caret line="78" column="57" selection-start-line="78" selection-start-column="56" selection-end-line="78" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/voice-process.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="50" column="8" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+        <state relative-caret-position="913">
+          <caret line="109" column="156" selection-start-line="109" selection-start-column="156" selection-end-line="109" selection-end-column="156" />
         </state>
       </provider>
     </entry>
