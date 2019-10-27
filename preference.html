@@ -1,16 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<!--
-Design by TEMPLATED
-http://templated.co
-Released for free under the Creative Commons Attribution License
-
-Name       : Lorikeet 
-Description: A two-column, fixed-width design with dark color scheme.
-Version    : 1.0
-Released   : 20140314
-
--->
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title></title>
@@ -33,9 +22,9 @@ Released   : 20140314
 		</div>
 		<div id="menu">
 			<ul>
-				<li class="active"><a href="index.html" accesskey="1" title="">Home</a></li>
+				<li><a href="index.html" accesskey="1" title="">Home</a></li>
 				<li><a href="#" accesskey="2" title="">About</a></li>
-				<li><a href="preference.html" accesskey="3" title="">Preferences</a></li>
+				<li class="active"><a href="preference.html" accesskey="3" title="">Preferences</a></li>
 				<li><a href="transfer.html" accesskey="4" title="">GetOneNow</a></li>
 				<li><a href="#" accesskey="5" title="">Happy Hacking</a></li>
 			</ul>
@@ -46,21 +35,18 @@ Released   : 20140314
 <!-- The preference input form -->
 <div id="preference-wrapper">
 <form>
-  <h1>Set up your preferences</h1>
+  <h1 style="margin-left: 0;">Set up your preferences</h1>
   
   <div class="question">
-    <div class="lable-text" style="padding-left: 2%;"> Diet Restriction (Select
-        "No" if no restricitons)</div> 
-    <select class="drop-down" name="diet-restriction">
-      <option value="vegan">Vegan</option>
-      <option value="diabetes">Diebetes</option>
-      <option value="hyperglycemia">Hyperglycemia</option>
-      <option value="blank">No</option>
-    </select>
+    <h3 style="margin: 0"> Diet Restriction (Leave it blank if no restrictions)</h3> 
+    <input type="checkbox" name="typeV" value="vegan">Vegan<br>
+    <input type="checkbox" name="typeD" value="diabetes">Diabetes<br>
+    <input type="checkbox" name="typeH" value="hyperglycemia">Hyperglycemia<br>
+    
   </div>
 
   <div class="question">
-    <div class="label-text">Calories Level</div>
+    <h3 style="margin: 0;">Calories Level</h3>
     <select class="drop-down" name="calories-level">
       <option value="low">Low</option>
       <option value="medium">Medium</option>
@@ -68,18 +54,10 @@ Released   : 20140314
    </select>
   </div>
 
-<!--  <div class="question">
-    <input type="text" required/>
-    <label></label>
-  </div>
-
-  <div class="question">
-    <input type="text" required/>
-    <label>Email Confirm</label>
-  </div>  -->
   <button>Submit</button>
 </form>
 </div>
+
 
 
 

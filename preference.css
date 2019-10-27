@@ -532,43 +532,6 @@ form .question input[type="text"] {
   z-index: 1;
 }
 
-/* For drop down boxes */ /**************************************/
-form .drop-down {
-  appearance: none;
-  background-color: none;
-  border: 1px solid black;
-  line-height: 0;
-  font-size: 17px;
-  width: 100%;
-  display: block;
-  box-sizing: border-box;
-  padding: 10px 15px;
-  border-radius: 60px;
-  color: white;
-  font-weight: 100;
-  letter-spacing: 0.01em;
-  position: relative;
-  z-index: 1;
-}
-
-form .label-text {
-  color: black;
-  padding-left: 2%; 
-}
-
-form .question .drop-down:focus {
-  outline: none;
-  background: white;
-  color: black;
-  margin-top: 30px;
-}
-form .question .drop-down:valid {
-  margin-top: auto;
-  color: black;
-}
-
-/* drop down ends here */ /****************************************/
-
 form .question input[type="text"]:focus {
   outline: none;
   background: white;

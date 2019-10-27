@@ -433,6 +433,12 @@
   .choice {
     text-decoration: none;
     color: white;
+    line-height: 4vw;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+
+  .choice:hover {
     line-height: 5vw;
   }
 
@@ -471,17 +477,22 @@
   border: none;
   padding: 0;
   margin-top: 2vw;
+  margin-right: 0.3vw;
   display: inline-block;
   background-color: white;
   cursor: pointer;
-  width: 30%;
-  height: 60%;
+  width: 10%;
   float: left;
+  z-index: 1;
+  top: 60%;
+  left: 34%;
+  display: none;
 }
 
 .voice-button:hover {
   background-color: royalblue;
   cursor: pointer;
+
 }
 
 .voice-button:focus {
