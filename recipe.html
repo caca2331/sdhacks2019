@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="http://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet" />
+<link href="recipe.css" rel="stylesheet" type="text/css" media="all" />
+<link href="fonts.css" rel="stylesheet" type="text/css" media="all" />
+
+<!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+
+</head>
+<body>
+
+<!-- The main header -->
+<div id="header-wrapper">
+	<div id="header" class="container">
+		<div id="logo">
+			<h1><a href="#">OneRecipe</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><a href="index.html" accesskey="1" title="">Home</a></li>
+				<li><a href="#" accesskey="2" title="">About</a></li>
+				<li><a href="preference.html" accesskey="3" title="">Preferences</a></li>
+				<li><a href="transfer.html" accesskey="4" title="">GetOneNow</a></li>
+				<li class="active"><a href="#" accesskey="5" title="">Happy Hacking</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div id="recipe_wrapper">
+	<div id="recipe_card">
+		<div id="recipe-img-wrapper">
+		</div>
+		<div id="recipe_name_wrapper">
+		</div>
+		<div id="recipe_text_wrapper">
+			<ol id="recipe_instruction_list">
+			</ol>
+		</div>
+	</div>
+</div>
+
+<!-- The recipe result gallery -->
+<script src="scratch.js"></script>
+<script type="text/javascript" src="theInstructions.json"></script>
+<script type="text/javascript" src="recipes.json"></script>
+<script type="text/javascript" src="grep.js"></script>
+<script>
+	var mydata = JSON.parse(JSON.stringify(theInstructions));
+	window.onload = displayScreen(mydata);
+
+	function displayScreen(jsonObj) {
+		var instructions = getFinalPreference();
+		var operations = jsonObj['theInstructions'];
+
+		for (let i = 0; i < instructions.length; i++) {
+			var recipe = theInstructions[i];
+	        mydata = JSON.parse(JSON.stringify(recipes));
+	        var imageN = getImageName(mydata, instructions[i]['name']);
+		}
+
+		var instrucs = recipe['instructions'];
+		for (let j = 0; j < instrucs.length; j++) {
+          var recipe_single_instruction = document.createElement('li');
+          recipe_single_instruction.innerHTML = JSON.stringify(instrucs[j]);
+          recipe_instruction_list.appendChild(recipe_single_instruction);
+        }
+	}
+
+</script>
+
+</body>
+</html>
