@@ -98,11 +98,17 @@
 		return string;
 	}
 
+	var ingredient;
+	function getIngredient(ingredients) {
+		ingredient = ingredients;
+		return ingredient;
+	}
+
 
 
 	function getFinalPreference() {
 		var mydata = JSON.parse(JSON.stringify(recipes));
-		var argument = "{\"ingredients\": [\"egg\",\"tomato\",\"potato\",\"green pepper\"], " + getPreference() + "}";
+		var argument = "{\"ingredients\": " + ingredient + getPreference() + "}";
 		localStorage.setItem("arguments", argument);
 		let text = localStorage.getItem("arguments");
 		obj = JSON.parse(text);
