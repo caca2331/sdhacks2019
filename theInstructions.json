@@ -9,6 +9,13 @@ theInstructions = [
 		]
 	},
 	{
+		"name": "Scrambled Eggs",
+		"instructions": [
+			"Buy some eggs",
+			"Fry eggs"
+		]
+	},
+	{
 		"name": "Fried Chicken Wings",
 		"instructions": [
 			"Buy some chicken wings",

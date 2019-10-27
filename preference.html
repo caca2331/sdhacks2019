@@ -109,6 +109,7 @@
 
 		var result = selectRecipe(mydata, obj);
 		result = ("[" + result + "]");
+
 		var resultJson = JSON.parse(result);
 		if (resultJson.length == 0) return [];
 
@@ -117,9 +118,13 @@
 		var allInstructions = [];
 		for (let i = 0; i < resultJson.length; i++) {
 			var name = resultJson[i]['name'];
+			if (allInstructions.length != 0) allInstructions += ", ";
 			allInstructions += parseInstruction(name, ins);
 		}
-		alert(allInstructions);
+		allInstructions = ("[" + allInstructions + "]");
+
+		instruct = JSON.parse(allInstructions);
+		console.log(instruct);
 		return parseInstruction(name, ins);
 	}
 

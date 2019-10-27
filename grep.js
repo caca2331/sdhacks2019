@@ -82,12 +82,15 @@ function selectRecipe(jsonObj, requirements) {
 	for (i = 0; i < secondRoundList.length; i++) {
 		var recipe = secondRoundList[i];
 		if (recipe['calories'].toUpperCase() == "LOW") {
+			if (low.length != 0) low += ", ";
 			low += JSON.stringify(recipe);
 		}
 		else if (recipe['calories'].toUpperCase() == "MEDIUM") {
+			if (medium.length != 0) medium += ", ";
 			medium += JSON.stringify(recipe);
 		}
 		else {
+			if (high.length != 0) high += ", ";
 			high += JSON.stringify(recipe);
 		}
 	}
@@ -95,15 +98,26 @@ function selectRecipe(jsonObj, requirements) {
 	// Then, get the list based on user's preference.
 	var retList = [];
 	if (calories.toUpperCase() == "LOW") {
-		retList += (low + medium);
+		retList += low;
+		if ((retList.length != 0) && (medium.length != 0)) {
+			retList += (", " + medium);
+		}
 	}
 	else if (calories.toUpperCase() == "MEDIUM") {
-		retList += (medium + low + high);
+		retList += medium;
+		if ((retList.length != 0) && (low.length != 0)) {
+			retList += (", " + low);
+		}
+		if ((retList.length != 0) && (high.length != 0)) {
+			retList += (", " + high);
+		}
 	}
 	else {
-		retList += (high + medium);
+		retList += high;
+		if ((retList.length != 0) && (medium.length != 0)) {
+			retList += (", " + medium);
+		}
 	}
-
 	return retList;
 }
 
@@ -119,7 +133,7 @@ function parseInstruction(recipe, jsonObj) {
 	// Travser the instructionFile and get the one in the recipe.
 	for (let i = 0; i < theInstructions.length; i++) {
 		if (recipe == theInstructions[i]['name']) {
-			ret += theInstructions[i]['instructions'];
+			ret += JSON.stringify(theInstructions[i]);
 		}
 	}
 	return ret;

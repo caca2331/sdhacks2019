@@ -12,6 +12,17 @@ recipes = [
 		]
 	},
 	{
+		"name": "Scrambled Eggs",
+		"ingredients": [
+			"egg"
+		],
+		"calories": "low",
+		"tags": [
+			"diabetes",
+			"hyperglycemia"
+		]
+	},
+	{
 		"name": "Fried Chicken Wings",
 		"ingredients": [
 			"chicken wing"
